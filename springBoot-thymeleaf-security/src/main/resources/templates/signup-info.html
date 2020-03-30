@@ -1,0 +1,114 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head th:replace="commons/fragments::headerfiles">
+</head>
+
+<body>
+
+	<div class="alert alert-success" th:if="${newUserMeassage}!=null">
+		<span th:text="${newUserMeassage}"></span>
+	</div>
+	
+
+	<div class="container">
+
+		<div class="col-sm-4">
+
+			<div>
+				<img src="../images/user.jpg" class="img-responsive" />
+			</div>
+
+			
+		</div>
+
+		<div class="col-sm-8">
+
+		<div class="alert alert-danger" th:if="${newUserMeassage}!=null">
+				<span th:text="${newUserMeassage}"></span>
+		</div>
+		
+
+			<div class="row">
+				<div class="col-md-6">
+					<label>User Id</label>
+				</div>
+				<div class="col-md-6">
+					<p th:text="${user.publicUserId}" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<label>Name</label>
+				</div>
+				<div class="col-md-6">
+					<p>
+						<span th:text="${user.firstName}"></span> <span
+							th:text="${user.lastName}"></span>
+					</p>
+
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col-md-6">
+					<label>Email</label>
+				</div>
+				<div class="col-md-6">
+					<p th:text="${user.email}" />
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col-md-6">
+					<label>Date of Birth</label>
+				</div>
+				<div class="col-md-6">
+					<p th:text="${user.dateOfBirth}" />
+				</div>
+			</div>
+
+
+
+			<div class="row">
+				<div class="col-md-6">
+					<label>Gender</label>
+				</div>
+				<div class="col-md-6">
+					<p th:text="${user.gender}" />
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col-md-6">
+					<label>Phone</label>
+				</div>
+				<div class="col-md-6">
+					<p>123 456 7890</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<label>Profession</label>
+				</div>
+				<div class="col-md-6">
+					<p>Web Developer and Designer</p>
+				</div>
+			</div>
+		</div>
+		
+
+		<div th:replace="commons/fragments::footer"></div>
+
+	</div>
+
+
+</body>
+</html>
+
+
+

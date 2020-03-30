@@ -1,0 +1,19 @@
+body {
+	background-color: #ffffff;
+}
+
+.error-messages {
+	color: red;
+	font-size: 16px;
+	font-family:FontAwesome;
+    font-style:normal;
+    font-weight:400;
+    speak:none;
+    width:1em;
+    margin-right:.2em;
+    text-align:center;
+    font-variant:normal;
+    text-transform:none;
+    line-height:1em;
+    margin-left:.2em;
+}

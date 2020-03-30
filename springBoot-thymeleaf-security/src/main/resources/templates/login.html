@@ -1,0 +1,83 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity">
+
+
+<head th:replace="commons/fragments::headerfiles">
+</head>
+
+<body>
+
+
+	<div class="container">
+
+		<div th:replace="commons/fragments::navbar"></div>
+
+		<div class="container">
+		
+			<div class="alert alert-danger" th:if="${message}!=null">
+				<span th:text="${message}"></span>
+			</div>
+			
+
+			<form class="form-horizontal" action="/login" method="post">
+
+				<!-- use param.error assuming FormLoginConfigurer#failureUrl contains the query parameter error -->
+				<div th:if="${param.error != null}">
+					Failed to login.
+					<div th:if="${SPRING_SECURITY_LAST_EXCEPTION != null}">
+						Reason: <span th:text="${SPRING_SECURITY_LAST_EXCEPTION.message}">
+						</span>
+					</div>
+				</div>
+
+				<!-- the configured LogoutConfigurer#logoutSuccessUrl is /login?logout and contains the query param logout -->
+				<div th:if="${param.logout != null}">You have been logged out.</div>
+
+
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="username">Email
+					</label>
+					<div class="col-sm-10">
+						<input type="text" name="username" class="form-control"
+							id="username" placeholder="Please Enter your email" />
+					</div>
+				</div>
+
+
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="password">Password
+					</label>
+					<div class="col-sm-10">
+						<input type="password" name="password" class="form-control"
+							id="password" placeholder="Please Enter your Password" />
+
+					</div>
+				</div>
+
+
+				<!-- if using RememberMeConfigurer make sure remember-me matches RememberMeConfigurer#rememberMeParameter -->
+				<!--         <p>
+	        <label for="remember-me">Remember Me?</label>
+	        <input type="checkbox" id="remember-me" name="remember-me"/>
+	        </p>
+	 		-->
+				<div>
+					<button type="submit" class="btn">Log in</button>
+					<a th:href="@{/forgetPassword}" class="btn btn-info">Forget Password ?</a>
+				</div>
+
+			</form>
+		</div>
+
+		<div th:replace="commons/fragments::footer"></div>
+
+	</div>
+
+
+
+
+
+
+</body>
+</html>

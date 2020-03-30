@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>DashBoard</title>
+</head>
+<body>
+<h1>Dash-Board</h1>
+<br>
+
+<p th:text="${message}"></p>
+
+<p th:text="${newUserMeassage}"></p>
+
+
+<div th:if="${newUserMeassage}!=null">
+		<span th:text="${newUserMeassage}"></span>
+	</div>
+	
+		<div class="alert alert-danger" th:if="${newUserMeassage}!=null">
+			<span th:text="${newUserMeassage}"></span>
+		</div>
+	
+
+</body>
+</html>

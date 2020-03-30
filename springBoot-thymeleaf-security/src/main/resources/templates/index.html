@@ -1,0 +1,126 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity">
+
+
+<head th:replace="commons/fragments::headerfiles">
+</head>
+
+<body>
+
+	<div class="container">
+	
+	<div th:replace="commons/fragments::navbar"></div>
+
+		<div class="alert alert-danger" th:if="${errMsg}!=null">
+			<span th:text="${errMsg}"></span>
+		</div>
+	
+	
+	<div class="container">
+		<form class="form-horizontal" action="#" th:action="@{/sign-up}"
+			th:object="${signUpUserRequestModel}" method="post">
+
+
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="firstName">First
+					Name</label>
+				<div class="col-sm-6">
+					<input type="text" th:field="*{firstName}" class="form-control"
+						id="firstName" placeholder="First Name" />
+				</div>
+
+				<div class="col-sm-4">
+					<span class="error-messages"
+						th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
+				</div>
+
+			</div>
+
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="lastName">Last
+					Name</label>
+				<div class="col-sm-6">
+					<input type="text" th:field="*{lastName}" class="form-control"
+						id="lastName" placeholder="Last Name (Optional)" />
+				</div>
+				<div class="col-sm-4">
+					<span class="error-messages"
+						th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="dob">Date Of
+					Birth</label>
+				<div class="col-sm-6">
+					<input type="date" th:field="*{dob}" class="form-control" id="dob" />
+				</div>
+				<div class="col-sm-4">
+					<span class="error-messages" th:if="${#fields.hasErrors('dob')}"
+						th:errors="*{dob}"></span>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="email">Email</label>
+				<div class="col-sm-6">
+					<input type="email" th:field="*{email}" class="form-control"
+						id="email" placeholder="Enter your email address" />
+				</div>
+				<div class="col-sm-4">
+					<span class="error-messages" th:if="${#fields.hasErrors('email')}"
+						th:errors="*{email}"></span>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="password">Password
+				</label>
+				<div class="col-sm-6">
+					<input type="password" th:field="*{password}" class="form-control"
+						id="password" placeholder="Enter a new Password" />
+				</div>
+				<div class="col-sm-4">
+					<span class="error-messages"
+						th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" th:for="gender">
+					Please choose Gender </label>
+				<div class="col-sm-6">
+					<ul>
+						<li th:each="gender:${allGender}"><input type="radio"
+							th:field="*{gender}" th:value="${gender}" /> <label
+							th:for="${#ids.prev('gender')}" th:text="${gender}"></label></li>
+					</ul>
+				</div>
+				<div class="col-sm-4">
+					<span class="error-messages" th:if="${#fields.hasErrors('gender')}"
+						th:errors="*{gender}"></span>
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-default">Submit</button>
+				</div>
+			</div>
+
+		</form>
+
+	</div>
+
+
+	<div th:replace="commons/fragments::footer"></div>
+
+</div>
+
+
+</body>
+</html>
