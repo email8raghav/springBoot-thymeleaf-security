@@ -26,8 +26,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	private static final String[] PUBLIC_MATCHERS = { "/webjars/**", "/css/**", "/js/**", "/images/**", "/", "/newUser",
 			"/emailVerification", "/sign-up", "/resetPassword", "/forgetPassword", "/profile", "/h2-console/**",
-			"/login", "/fonts/**", "/bookshelf", "/bookDetail/**", "/hours", "/faq", "/searchByCategory",
-			"/searchBook", "/test" };
+			"/login", "/fonts/**", "/bookShelf", "/bookDetail/**", "/hours", "/faq", "/searchByCategory",
+			"/searchBook", "/test"};
 	
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userService).passwordEncoder(bCryptPasswordEncoder);

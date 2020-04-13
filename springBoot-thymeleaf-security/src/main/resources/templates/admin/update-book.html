@@ -12,16 +12,17 @@
 
 		<div th:replace="commons/fragments::navbar"></div>
 
-
 		<div class="container">
 			<div class="row">
-				<form class="form-horizontal" th:action="@{/addBook}" th:object="${book}" 
+				<form class="form-horizontal" th:action="@{/updateBook}"
 					method="post" enctype="multipart/form-data">
 					<fieldset>
 						<legend class="center-block">
-							New Book Information<span style="font-size: small"> * is a
-								required field</span>
+							Update Book Information<span style="font-size: small"> *
+								is a required field</span>
 						</legend>
+
+						<input hidden="hidden" name="id" th:value="${book.id}" />
 
 
 						<!-- title -->
@@ -92,7 +93,6 @@
 									name="category" class="form-control">
 									<option value="" selected="selected" disabled="disabled">Please
 										select an option...</option>
-									<!-- for 2nd time when page loaded user previous selected value will be displayed by th:selected attribute -->
 									<option value="Management"
 										th:selected="(${book.category}=='Management')">Management</option>
 									<option value="Fiction"
@@ -205,8 +205,9 @@
 							<label class="col-md-2 control-label" for="status">Status</label>
 							<div class="col-md-8">
 								<label><input value="true" type="radio" name="active"
-									checked="checked" /> Active </label> <label><input
-									value="false" type="radio" name="active" /> Inactive </label> <span
+									th:checked="${book.active}" /> Active </label> <label><input
+									value="false" type="radio" name="active"
+									th:checked="${!book.active}" /> Inactive </label> <span
 									class="help-block">Whether the book is active or
 									inactive</span>
 							</div>
@@ -218,7 +219,8 @@
 							<div class="col-md-8">
 								<textarea name="description" rows="5" class="form-control"
 									id="description" th:value="${book.description}"
-									placeholder="Description"></textarea>
+									th:text="${book.description}" placeholder="Description" />
+								<span class="help-block">Description of the book</span>
 							</div>
 						</div>
 
@@ -236,14 +238,15 @@
 						<div class="form-group">
 							<div class="col-md-2"></div>
 							<div class="col-md-8">
-								<button type="submit" class="btn btn-success">Add Book</button>
-								<a class="btn btn-danger" th:href="@{/}">Cancel</a>
+								<button type="submit" class="btn btn-success">Update
+									Book</button>
+								<a class="btn btn-danger"
+									th:href="@{/book/bookInfo(id=${book.id})}">Cancel</a>
 							</div>
 						</div>
 					</fieldset>
 				</form>
 			</div>
-
 		</div>
 
 		<div th:replace="commons/fragments::footer"></div>
@@ -253,3 +256,4 @@
 
 </body>
 </html>
+

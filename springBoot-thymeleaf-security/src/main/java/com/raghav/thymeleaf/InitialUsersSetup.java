@@ -52,9 +52,9 @@ public class InitialUsersSetup {
 		userRepository.save(adminUser);
 		
 		UserEntity dummyUser = new UserEntity();
-		dummyUser.setFirstName("DummyUser");
-		dummyUser.setLastName("yummy");
-		dummyUser.setEmail("softraghavendra@gmail.com");
+		dummyUser.setFirstName("raghav");
+		dummyUser.setLastName("rai");
+		dummyUser.setEmail("softraghavendra@live.com");
 		dummyUser.setDateOfBirth(DateParser.localDateParser("1987-03-22"));
 		dummyUser.setEmailIsVerified(true);
 		dummyUser.setPublicUserId(UUID.randomUUID().toString());

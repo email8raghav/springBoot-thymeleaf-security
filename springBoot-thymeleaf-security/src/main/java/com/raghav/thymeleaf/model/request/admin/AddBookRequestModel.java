@@ -1,4 +1,4 @@
-package com.raghav.thymeleaf.model.request;
+package com.raghav.thymeleaf.model.request.admin;
 
 import org.springframework.web.multipart.MultipartFile;
 
